@@ -1,0 +1,45 @@
+﻿** Warnings
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+
+** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Addresses] (Table)
+       [dbo].[Centers] (Table)
+       [dbo].[Companies] (Table)
+       [dbo].[Contacts] (Table)
+       [dbo].[People] (Table)
+       [dbo].[DF_Addresses_IsResidential] (Default Constraint)
+       [dbo].[DF_Addresses_Deleted] (Default Constraint)
+       [dbo].[DF__Center__Delet__3EC77721] (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       Default Constraint: <unnamed> (Default Constraint)
+       [dbo].[DF__People__Creat__46A09EA5] (Default Constraint)
+       [dbo].[DF__People__Creat__4794C2DE] (Default Constraint)
+       [dbo].[DF__People__Delet__4888E717] (Default Constraint)
+       [dbo].[DF_People_IncludeClaimForm] (Default Constraint)
+       [dbo].[DF_People_MarketingOptOut] (Default Constraint)
+       [dbo].[DF_People_AutoRefill] (Default Constraint)
+       [dbo].[DF_People_AutoRenew] (Default Constraint)
+       [dbo].[DF_People_RequireOrderConfirmation] (Default Constraint)
+       [dbo].[DF_People_NoChildProofCaps] (Default Constraint)
+       [dbo].[DF_People_SignatureRequired] (Default Constraint)
+       [dbo].[FK_Addresses_Contacts] (Foreign Key)
+       [dbo].[Company_Centers_FK1] (Foreign Key)
+
+** Supporting actions

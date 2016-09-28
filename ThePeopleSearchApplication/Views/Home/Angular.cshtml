@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Angular";
+}
+
+<script src="~/Scripts/Angular/jquery-1.10.2.min.js"></script>
+@*<script src="~/Scripts/Angular/angular.js"></script>*@
+<script src="~/Scripts/Angular/angular.min.js" type="text/javascript"></script>
+<h2>Angular</h2>
+<script type="text/javascript">
+    var app = angular.module('peopleSearchApp', []);
+    app.controller('HomeCtrl', ['$scope', '$http', '$timeout', function ($scope, $http, $timeout) {
+        var mm;
+        $scope.show = 0;
+        $scope.hide = function () {
+            $scope.peopleSearch = 1;
+        }
+        $scope.he = function ($event) {
+
+            mm = $event.timeStamp;
+            if ($scope.input != '') {
+                $timeout(function () {
+                    if (mm - $event.timeStamp == 0) {
+                        $scope.show = 1;
+                        var time1 = new Date().getTime();
+                        $http({
+                            method: 'POST',
+                            url: '/Home/GetPeople',
+                            data: { searchText: $scope.input }
+                        })
+                        .then(function (response) {
+
+                            $scope.peopleSearch = response.data;
+
+                            angular.forEach($scope.peopleSearch, function (obj) {
+                                obj["showEdit"] = true;
+                            })
+                            
+                        }, function (error) {
+                            console.log(error);
+                        });
+                    }
+                }, 500)
+            }
+
+
+        }
+        $scope.toggleEdit = function (x) {
+            x.showEdit = x.showEdit ? false : true;
+            if (!x.showEdit) {
+                //update
+            }
+        }
+    }]);
+</script>
+<div ng-app="peopleSearchApp" ng-controller="HomeCtrl" class="container">
+    <div class="row">
+        <div class="bs-example marginTop50" data-example-id="table-within-panel">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <p>
+                        <label for="searchTextBox">Search:</label>
+                        <input type="text" class="txt200" size="50"  ng-model="input" id="searchTextBox"  placeholder="Type to search (t)" ng-keyup="he($event)" />
+                    </p>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            @*<th>#</th>*@
+                            <th class="cln100">First Name</th>
+                            <th class="cln100">Last Name</th>
+                            <th class="cln200">Address</th>
+                            <th class="cln100">Age</th>
+                            <th class="cln200">Interests</th>
+                            <th class="cln100">Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in peopleSearch">
+                         @*   <th scope="row">{{$index+1}}
+                            </th>*@
+                            <td class="cln100"><span ng-show="x.showEdit">{{x.FirstName}}</span>
+                                <input class="cln100" ng-show="!x.showEdit" type="text" ng-model="x.FirstName" class="form-control">
+                            </td>
+                            <td class="cln100"><span ng-show="x.showEdit">{{x.LastName}}</span>
+                                <input class="cln100" ng-show="!x.showEdit" type="text" ng-model="x.LastName" class="form-control"></td>
+                            <td class="cln200"><span ng-show="x.showEdit">{{x.Address == 'null'? '':x.Address}}</span>
+                                <input class="cln200" ng-show="!x.showEdit" type="text" ng-model="x.Address"></td>
+                            <td class="cln100"><span ng-show="x.showEdit">{{x.Age}}</span>
+                                <input class="cln100" ng-show="!x.showEdit" type="text" ng-model="x.Age" class="form-control"></td>
+                            <td class="cln200"><span ng-show="x.showEdit">{{ x.Interests== 'null'? '':x.Interests}}</span>
+                                <input class="cln200" ng-show="!x.showEdit" type="text" ng-model="x.Interests" class="form-control"></td>
+                            <td class="cln200"><span ng-show="x.showEdit"><img src="{{ x.ImageUrl== 'null'? '':x.ImageUrl}}" class="patientImage" alt="Image" /></span>
+                                <input  class="cln200" ng-show="!x.showEdit" type="text" ng-model="x.ImageUrl"></td>
+                            <td>
+                                <span  ng-show="x.showEdit"  class="btn  btn-success"  ng-click="toggleEdit(x)" >Edit</span>
+                                <span  ng-show="!x.showEdit"  class="btn  btn-success-green"  ng-click="toggleEdit(x)" >Save</span>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

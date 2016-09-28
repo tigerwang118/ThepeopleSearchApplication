@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d3b0fd43d1348b0aa01aa7038a6128d" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="ThePeopelSearchApplicationModel.Address" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThePeopelSearchApplicationModel.Center" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThePeopelSearchApplicationModel.Company" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThePeopelSearchApplicationModel.Contact" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThePeopelSearchApplicationModel.Person" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="ThePeopelSearchApplicationModel.FK_Addresses_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="ThePeopelSearchApplicationModel.Company_Centers_FK1" ManuallyRouted="false" />
+        <AssociationConnector Association="ThePeopelSearchApplicationModel.FK_People_Contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="ThePeopelSearchApplicationModel.FK_People_Addresses" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

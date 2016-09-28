@@ -1,0 +1,12 @@
+﻿.k-widget.k-tooltip
+{
+    background-color: #007AFF;
+    border-color: #007AFF;
+    color: #FFFFFF;
+    padding: 15px 3px;
+}
+
+.k-widget.k-tooltip .bold
+{
+    font-weight: bold;
+}

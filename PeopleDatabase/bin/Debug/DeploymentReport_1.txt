@@ -1,0 +1,33 @@
+﻿** Warnings
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+     WITH CHECK | NOCHECK option for existing data check enforcement is ignored.
+
+** Highlights
+     Tables that will be rebuilt
+       [dbo].[People]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[People] (Table)
+     Create
+       [dbo].[FK_People_Contacts] (Foreign Key)
+
+** Supporting actions
+     Drop
+       [dbo].[DF__People__Creat__46A09EA5] (Default Constraint)
+       [dbo].[DF__People__Creat__4794C2DE] (Default Constraint)
+       [dbo].[DF__People__Delet__4888E717] (Default Constraint)
+       [dbo].[DF_People_IncludeClaimForm] (Default Constraint)
+       [dbo].[DF_People_MarketingOptOut] (Default Constraint)
+       [dbo].[DF_People_AutoRefill] (Default Constraint)
+       [dbo].[DF_People_AutoRenew] (Default Constraint)
+       [dbo].[DF_People_RequireOrderConfirmation] (Default Constraint)
+       [dbo].[DF_People_NoChildProofCaps] (Default Constraint)
+       [dbo].[DF_People_SignatureRequired] (Default Constraint)

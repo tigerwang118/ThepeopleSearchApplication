@@ -1,0 +1,193 @@
+﻿@model ThePeopleSearchApplication.Models.PeopleSearchModel
+@{
+    ViewBag.Title = "Knockout";
+}
+	@Styles.Render("~/Content/themes/base/css")
+	@Styles.Render("~/Content/kendo/css")
+	@Styles.Render("~/Content/css")<link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/KendoGrid.css" rel="stylesheet" />
+<link href="~/Content/KendoMenu.css" rel="stylesheet" />
+<link href="~/Content/KendoTooltip.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.1.318/kendo.common.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/2014.1.318/kendo.default.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+<script src="~/Scripts/kendo/2014.1.318/kendo.web.min.js"></script>
+<script src="~/Scripts/Knockout/knockout-3.1.0.js"></script>
+<script src="~/Scripts/Knockout/knockout-3.1.0.debug.js"></script>
+<script src="~/Scripts/Knockout/KnockoutMapping.js"></script>
+<script src="~/Scripts/Knockout/KnockoutModels.js"></script>
+<script src="~/Scripts/Knockout/knockout-kendo.js"></script>
+<h2>Knockout</h2>
+<div style="position: absolute">
+    <div class="personListHeader">
+        <div class="input-group">         
+            <span class="personListFilters">
+                @*<select data-bind="options: FilterValues, value: FilterValue, optionsText: 'Text', optionsValue: 'Value', optionsCaption: 'FilterBy'"></select>*@
+                <select data-bind="options: sortColumns, value: SortColumn, optionsText: 'Text', optionsValue: 'Value', optionsCaption: 'SortBy', visible: showSortColumns, event: { change: sortColumnChanged }"></select>
+                <input type="text" placeholder='Search' data-bind="value: SearchText, valueUpdate: 'afterkeydown'" />
+                <span data-bind="text:DisplayType"></span>
+            </span>
+            <span class="displayOptions">
+                <span class="displaySize">
+                    <label>Display</label>
+                    <select data-bind="options: DisplaySizeValues, value: PageSize, optionsText: 'Text', optionsValue: 'Value'"></select>
+                </span>
+                <span class="displayType">
+                    <!-- ko foreach: DisplayTypes -->
+                    <a class="ui-icon" data-bind="css: css, attr: { title: Name },click: $root.setDisplayType"></a>
+                    <!-- /ko -->
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="personList">
+        <!-- ko if: kendoGridRowTemplate() == 'imageList' -->
+   <div class="kendoGrid" data-bind="kendoGrid: {
+    data: People,
+    widget: grid,
+    rowTemplate: 'imageList',
+    altRowTemplate: 'imageListAlt',
+    useKOTemplates: true,
+    pageable: { 
+        buttonCount: 5,
+        change: pageChange 
+    },
+    dataSource: {
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true
+    },
+    columns: ko.observableArray([
+        { field: 'ImageUrl', title: ' ', sortable: false, width: '100px' },
+        { field: 'FirstName', title: 'First Name' },
+        { field: 'LastName', title: 'Last Name', width: '100px' },
+        { field: 'Address', title: 'Address', width: '100px' },
+        { field: 'Age', title: 'Age', width: '100px' },
+        { field: 'Interests', title: 'Interests', width: '200px' }
+        ]),
+    sortable: {
+    mode: 'single',
+    allowUnsort: false
+    },
+scrollable: false
+}">
+        </div>
+       
+      <!-- /ko -->
+          <!-- ko if: kendoGridRowTemplate() == 'grid' -->
+        <div class="kendoGrid" id="ogrid" data-bind="kendoGrid: {
+    data: People,
+    widget: grid,
+    rowTemplate: 'grid',
+    useKOTemplates: true,
+    pageable: { 
+        buttonCount: 5,
+        change: pageChange
+    },
+    dataSource: {
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true
+    },
+    scrollable: false,
+    dataBound: gridDataBound
+}">
+        </div>
+        <!-- /ko -->
+
+    </div>
+    <div class="clear"></div>
+    @*knockout templates*@
+
+    <script id="imageList" type="text/html">
+        <tr class="even">
+            <td class="personImage">
+                <span class="ui-corner-all">
+                    <img data-bind="attr: { src: ImageUrl, alt: FirstName }" />      
+                </span>
+            </td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: Address"></td>
+            <td data-bind="text: Age"></td>
+            <td data-bind="text: Interests"></td>
+    </script>
+    <script id="imageListAlt" type="text/html">
+        <tr class="odd">
+             <td class="personImage">
+                <span class="ui-corner-all">
+                    <img data-bind="attr: { src: ImageUrl, alt: FirstName }" />      
+                </span>
+            </td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: Address"></td>
+            <td data-bind="text: Age"></td>
+            <td data-bind="text: Interests"></td>
+        </tr>
+    </script>
+
+    <script id="list" type="text/html">
+        <tr class="even">
+            <td>
+            </td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: Address"></td>
+            <td data-bind="text: Age"></td>
+            <td data-bind="text: Interests"></td>
+        </tr>
+    </script>
+
+    <script id="listAlt" type="text/html">
+        <tr class="odd">
+             <td>
+            </td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: Address"></td>
+            <td data-bind="text: Age"></td>
+            <td data-bind="text: Interests"></td>
+        </tr>
+    </script>
+
+    <script id="grid" type="text/html">
+        <tr>
+            <td>
+                <!-- ko -->
+                <div class="personInGrid ui-corner-all">
+
+                    <span class="personImage">
+                        <span class="ui-corner-all">
+                            <img data-bind="attr: { src: ImageUrl, alt: FirstName }" />
+                        </span>
+                    </span>
+         <span class="personInfo bold" data-bind="text:LastName"></span>
+                    <span class="personInfo">
+                        Age&nbsp;<span data-bind="text: Age"></span>
+                    </span>
+                    <span class="personInfo">
+                        <span data-bind="text: Interests"></span>
+                    </span>
+                    <span class="personInfo">
+                        &nbsp;<span data-bind="text: Address"></span>
+                    </span>
+                   
+                </div>
+                <!-- /ko -->
+            </td>
+        </tr>
+    </script>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('.productListHeader .displayOptions .displaySize select').change();
+        // bind our MVC model to the HTML using knockoutjs
+        var data = @(Html.Raw(Json.Encode(Model)));
+        debugger;
+        peopleModel= KnockoutModel.BindPeopleSearchModel(data);        
+        
+        });
+    </script>

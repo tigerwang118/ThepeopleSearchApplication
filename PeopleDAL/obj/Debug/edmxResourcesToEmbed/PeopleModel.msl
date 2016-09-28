@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThePeopelSearchApplicationModelStoreContainer" CdmEntityContainer="ThePeopelSearchApplicationEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Street1" ColumnName="Street1" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="SPSAddressID" ColumnName="SPSAddressID" />
+          <ScalarProperty Name="IsResidential" ColumnName="IsResidential" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Centers">
+      <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Center">
+        <MappingFragment StoreEntitySet="Centers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="AuthorizeNetLogin" ColumnName="AuthorizeNetLogin" />
+          <ScalarProperty Name="AuthorizeNetTranKey" ColumnName="AuthorizeNetTranKey" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CenterLogo" ColumnName="CenterLogo" />
+          <ScalarProperty Name="CybersourceLogin" ColumnName="CybersourceLogin" />
+          <ScalarProperty Name="CybersourceTranKey" ColumnName="CybersourceTranKey" />
+          <ScalarProperty Name="AuthorizeNetUrl" ColumnName="AuthorizeNetUrl" />
+          <ScalarProperty Name="CybersourceUrl" ColumnName="CybersourceUrl" />
+          <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDateUtc" ColumnName="LastModifiedDateUtc" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyRoleName" ColumnName="CompanyRoleName" />
+          <ScalarProperty Name="CompanyTheme" ColumnName="CompanyTheme" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+          <ScalarProperty Name="PaymentMethodDefault" ColumnName="PaymentMethodDefault" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="LastModifiedDateUtc" ColumnName="LastModifiedDateUtc" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="TempInsertID" ColumnName="TempInsertID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Person">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="PrescriberDefault" ColumnName="PrescriberDefault" />
+          <ScalarProperty Name="AddressDefault" ColumnName="AddressDefault" />
+          <ScalarProperty Name="EmailDefault" ColumnName="EmailDefault" />
+          <ScalarProperty Name="PhoneNumberDefault" ColumnName="PhoneNumberDefault" />
+          <ScalarProperty Name="IncludeClaimForm" ColumnName="IncludeClaimForm" />
+          <ScalarProperty Name="MarketingOptOut" ColumnName="MarketingOptOut" />
+          <ScalarProperty Name="AutoRefill" ColumnName="AutoRefill" />
+          <ScalarProperty Name="AutoRenew" ColumnName="AutoRenew" />
+          <ScalarProperty Name="RequireOrderConfirmation" ColumnName="RequireOrderConfirmation" />
+          <ScalarProperty Name="CreditOnFile" ColumnName="CreditOnFile" />
+          <ScalarProperty Name="PaymentMethodDefault" ColumnName="PaymentMethodDefault" />
+          <ScalarProperty Name="AuthorizeNetCustomerID" ColumnName="AuthorizeNetCustomerID" />
+          <ScalarProperty Name="CarrierServiceID" ColumnName="CarrierServiceID" />
+          <ScalarProperty Name="NoChildProofCaps" ColumnName="NoChildProofCaps" />
+          <ScalarProperty Name="SignatureRequired" ColumnName="SignatureRequired" />
+          <ScalarProperty Name="SignatureDefault" ColumnName="SignatureDefault" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="SSN" ColumnName="SSN" />
+          <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+          <ScalarProperty Name="Interests" ColumnName="Interests" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

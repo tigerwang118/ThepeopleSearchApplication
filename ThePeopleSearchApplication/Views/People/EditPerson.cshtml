@@ -1,0 +1,73 @@
+﻿@model ThePeopleSearchApplication.Models.PeopleModel
+@{
+    Layout = null;
+}
+<script type="text/javascript">
+    $(function () {
+        $('.EditPeopleContainer form').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            if (form.valid()) {
+                ClearMessages();
+                $.post(form.attr('action'), form.serialize(), function (result) {
+                    if (result && result.success) {
+                        ShowMessage('success', 'Success', form);
+                        ClosePeopleWindow();
+                    }
+                    else {
+                        ShowMessage('error', result.message, form);
+                    }
+                });
+            }
+        });
+        function CloseEditPeopleWindow() {
+            $('#EditPeopleWindow').data('kendoWindow').close();
+        }
+    });
+</script>
+<div id="main" class="EditPeopleContainer">
+    @using (Html.BeginForm("SavePeople", "People", FormMethod.Post))
+    {	
+        @Html.AntiForgeryToken()	
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(m => m.Id)
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.Id)</div>
+                <div class="content-value">@Html.EditorFor(x => x.Id)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.FirstName)</div>
+                <div class="content-value">@Html.EditorFor(x => x.FirstName)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.LastName)</div>
+                <div class="content-value">@Html.EditorFor(x => x.LastName)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.Age)</div>
+                <div class="content-value">@Html.EditorFor(x => x.Age)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.Address)</div>
+                <div class="content-value">@Html.EditorFor(x => x.Address)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.Interests)</div>
+                <div class="content-value">@Html.EditorFor(x => x.Interests)</div>
+            </div>
+            <div class="content">
+                <div class="content-label">@Html.LabelFor(x => x.ImageUrl)</div>
+                <div class="content-value">@Html.EditorFor(x => x.ImageUrl)</div>
+            </div>
+
+            <div class="buttons">
+                <span class="left"></span>
+                <span class="right ">
+                    <button type="submit" class="primary-button">Save</button>
+                    <button type="button" onclick=" $('#EditPeopleWindow').data('kendoWindow').close();">Cancel</button>
+                </span>
+            </div>
+        </div>	
+    }
+</div>

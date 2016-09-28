@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ThePeopelSearchApplicationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactID" Type="int" Nullable="false" />
+          <Property Name="AddressTypeID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Street1" Type="varchar" MaxLength="255" />
+          <Property Name="Street2" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="PostalCode" Type="varchar" MaxLength="10" />
+          <Property Name="County" Type="varchar" MaxLength="255" />
+          <Property Name="StateProvinceID" Type="int" />
+          <Property Name="SPSAddressID" Type="varchar" MaxLength="50" />
+          <Property Name="IsResidential" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Centers">
+          <Key>
+            <PropertyRef Name="CenterID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CenterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CenterName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="AuthorizeNetLogin" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthorizeNetTranKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="CenterLogo" Type="image" />
+          <Property Name="CybersourceLogin" Type="nvarchar" MaxLength="50" />
+          <Property Name="CybersourceTranKey" Type="nvarchar" MaxLength="500" />
+          <Property Name="AuthorizeNetUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="CybersourceUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedDateUtc" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastModifiedDateUtc" Type="datetime" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Token" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CompanyRoleName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyTheme" Type="nvarchar" MaxLength="25" />
+          <Property Name="CompanyEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="PaymentMethodDefault" Type="int" />
+          <Property Name="URL" Type="nvarchar" MaxLength="225" />
+          <Property Name="CompanyLogo" Type="nchar" MaxLength="100" />
+          <Property Name="CreatedDateUtc" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastModifiedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastModifiedDateUtc" Type="datetime" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TempInsertID" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Suffix" Type="nvarchar" MaxLength="5" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="510" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="1" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="CenterID" Type="int" Nullable="false" />
+          <Property Name="PrescriberDefault" Type="int" />
+          <Property Name="AddressDefault" Type="int" />
+          <Property Name="EmailDefault" Type="int" />
+          <Property Name="PhoneNumberDefault" Type="int" />
+          <Property Name="IncludeClaimForm" Type="bit" Nullable="false" />
+          <Property Name="MarketingOptOut" Type="bit" Nullable="false" />
+          <Property Name="AutoRefill" Type="bit" Nullable="false" />
+          <Property Name="AutoRenew" Type="bit" Nullable="false" />
+          <Property Name="RequireOrderConfirmation" Type="bit" Nullable="false" />
+          <Property Name="CreditOnFile" Type="money" />
+          <Property Name="PaymentMethodDefault" Type="int" />
+          <Property Name="AuthorizeNetCustomerID" Type="nvarchar" MaxLength="10" />
+          <Property Name="CarrierServiceID" Type="int" />
+          <Property Name="NoChildProofCaps" Type="bit" Nullable="false" />
+          <Property Name="SignatureRequired" Type="bit" Nullable="false" />
+          <Property Name="SignatureDefault" Type="nvarchar" MaxLength="30" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="101" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="SSN" Type="nchar" MaxLength="20" />
+          <Property Name="Salutation" Type="nchar" MaxLength="10" />
+          <Property Name="Interests" Type="nvarchar" MaxLength="250" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="ContactID" Type="int" />
+        </EntityType>
+        <Association Name="Company_Centers_FK1">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="0..1" />
+          <End Role="Centers" Type="Self.Centers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Centers">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Addresses_Contacts">
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_Addresses">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="0..1" />
+          <End Role="People" Type="Self.People" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="AddressDefault" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_Contacts">
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="0..1" />
+          <End Role="People" Type="Self.People" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThePeopelSearchApplicationModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Centers" EntityType="Self.Centers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Company_Centers_FK1" Association="Self.Company_Centers_FK1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Centers" EntitySet="Centers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Addresses_Contacts" Association="Self.FK_Addresses_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_Addresses" Association="Self.FK_People_Addresses">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_Contacts" Association="Self.FK_People_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThePeopelSearchApplicationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" />
+          <Property Name="AddressTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Street1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Street2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StateProvinceID" Type="Int32" />
+          <Property Name="SPSAddressID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsResidential" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Addresses_Contacts" FromRole="Addresses" ToRole="Contacts" />
+          <NavigationProperty Name="People" Relationship="ThePeopelSearchApplicationModel.FK_People_Addresses" FromRole="Address" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Center">
+          <Key>
+            <PropertyRef Name="CenterID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CenterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CenterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="AddressID" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizeNetLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizeNetTranKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="CenterLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CybersourceLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CybersourceTranKey" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AuthorizeNetUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CybersourceUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastModifiedDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="MerchantID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Token" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="Self.Company_Centers_FK1" FromRole="Centers" ToRole="Companies" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyRoleName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyTheme" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentMethodDefault" Type="Int32" />
+          <Property Name="URL" Type="String" MaxLength="225" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLogo" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="CreatedDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastModifiedDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Centers" Relationship="Self.Company_Centers_FK1" FromRole="Companies" ToRole="Centers" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TempInsertID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Addresses_Contacts" FromRole="Contacts" ToRole="Addresses" />
+          <NavigationProperty Name="People" Relationship="Self.FK_People_Contacts" FromRole="Contacts" ToRole="People" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NickName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Suffix" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="510" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="CenterID" Type="Int32" Nullable="false" />
+          <Property Name="PrescriberDefault" Type="Int32" />
+          <Property Name="AddressDefault" Type="Int32" />
+          <Property Name="EmailDefault" Type="Int32" />
+          <Property Name="PhoneNumberDefault" Type="Int32" />
+          <Property Name="IncludeClaimForm" Type="Boolean" Nullable="false" />
+          <Property Name="MarketingOptOut" Type="Boolean" Nullable="false" />
+          <Property Name="AutoRefill" Type="Boolean" Nullable="false" />
+          <Property Name="AutoRenew" Type="Boolean" Nullable="false" />
+          <Property Name="RequireOrderConfirmation" Type="Boolean" Nullable="false" />
+          <Property Name="CreditOnFile" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PaymentMethodDefault" Type="Int32" />
+          <Property Name="AuthorizeNetCustomerID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CarrierServiceID" Type="Int32" />
+          <Property Name="NoChildProofCaps" Type="Boolean" Nullable="false" />
+          <Property Name="SignatureRequired" Type="Boolean" Nullable="false" />
+          <Property Name="SignatureDefault" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="101" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="SSN" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Salutation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Interests" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ContactID" Type="Int32" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_People_Contacts" FromRole="People" ToRole="Contacts" />
+          <NavigationProperty Name="Address" Relationship="ThePeopelSearchApplicationModel.FK_People_Addresses" FromRole="Person" ToRole="Address" />
+        </EntityType>
+        <Association Name="FK_Addresses_Contacts">
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Company_Centers_FK1">
+          <End Role="Companies" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Centers" Type="Self.Center" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="Centers">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_People_Contacts">
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="People" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contacts">
+              <PropertyRef Name="ContactID" />
+            </Principal>
+            <Dependent Role="People">
+              <PropertyRef Name="ContactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThePeopelSearchApplicationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Centers" EntityType="Self.Center" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <AssociationSet Name="FK_Addresses_Contacts" Association="Self.FK_Addresses_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="Company_Centers_FK1" Association="Self.Company_Centers_FK1">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Centers" EntitySet="Centers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_Contacts" Association="Self.FK_People_Contacts">
+            <End Role="Contacts" EntitySet="Contacts" />
+            <End Role="People" EntitySet="People" />
+          </AssociationSet>
+          <AssociationSet Name="FK_People_Addresses" Association="ThePeopelSearchApplicationModel.FK_People_Addresses">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Person" EntitySet="People" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_People_Addresses">
+          <End Type="ThePeopelSearchApplicationModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="ThePeopelSearchApplicationModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="AddressDefault" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThePeopelSearchApplicationModelStoreContainer" CdmEntityContainer="ThePeopelSearchApplicationEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Address">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Street1" ColumnName="Street1" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="SPSAddressID" ColumnName="SPSAddressID" />
+                <ScalarProperty Name="IsResidential" ColumnName="IsResidential" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centers">
+            <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Center">
+              <MappingFragment StoreEntitySet="Centers">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="AuthorizeNetLogin" ColumnName="AuthorizeNetLogin" />
+                <ScalarProperty Name="AuthorizeNetTranKey" ColumnName="AuthorizeNetTranKey" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CenterLogo" ColumnName="CenterLogo" />
+                <ScalarProperty Name="CybersourceLogin" ColumnName="CybersourceLogin" />
+                <ScalarProperty Name="CybersourceTranKey" ColumnName="CybersourceTranKey" />
+                <ScalarProperty Name="AuthorizeNetUrl" ColumnName="AuthorizeNetUrl" />
+                <ScalarProperty Name="CybersourceUrl" ColumnName="CybersourceUrl" />
+                <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedDateUtc" ColumnName="LastModifiedDateUtc" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyRoleName" ColumnName="CompanyRoleName" />
+                <ScalarProperty Name="CompanyTheme" ColumnName="CompanyTheme" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="PaymentMethodDefault" ColumnName="PaymentMethodDefault" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+                <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+                <ScalarProperty Name="LastModifiedDateUtc" ColumnName="LastModifiedDateUtc" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="TempInsertID" ColumnName="TempInsertID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="ThePeopelSearchApplicationModel.Person">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedDateUtc" ColumnName="CreatedDateUtc" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+                <ScalarProperty Name="PrescriberDefault" ColumnName="PrescriberDefault" />
+                <ScalarProperty Name="AddressDefault" ColumnName="AddressDefault" />
+                <ScalarProperty Name="EmailDefault" ColumnName="EmailDefault" />
+                <ScalarProperty Name="PhoneNumberDefault" ColumnName="PhoneNumberDefault" />
+                <ScalarProperty Name="IncludeClaimForm" ColumnName="IncludeClaimForm" />
+                <ScalarProperty Name="MarketingOptOut" ColumnName="MarketingOptOut" />
+                <ScalarProperty Name="AutoRefill" ColumnName="AutoRefill" />
+                <ScalarProperty Name="AutoRenew" ColumnName="AutoRenew" />
+                <ScalarProperty Name="RequireOrderConfirmation" ColumnName="RequireOrderConfirmation" />
+                <ScalarProperty Name="CreditOnFile" ColumnName="CreditOnFile" />
+                <ScalarProperty Name="PaymentMethodDefault" ColumnName="PaymentMethodDefault" />
+                <ScalarProperty Name="AuthorizeNetCustomerID" ColumnName="AuthorizeNetCustomerID" />
+                <ScalarProperty Name="CarrierServiceID" ColumnName="CarrierServiceID" />
+                <ScalarProperty Name="NoChildProofCaps" ColumnName="NoChildProofCaps" />
+                <ScalarProperty Name="SignatureRequired" ColumnName="SignatureRequired" />
+                <ScalarProperty Name="SignatureDefault" ColumnName="SignatureDefault" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="Salutation" ColumnName="Salutation" />
+                <ScalarProperty Name="Interests" ColumnName="Interests" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

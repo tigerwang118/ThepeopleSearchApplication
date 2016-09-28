@@ -1,0 +1,5 @@
+F:\SVN\erp\ThePeopleSearchApplication\PeopleDatabase\bin\Debug\PeopleDatabase.dacpac
+F:\SVN\erp\ThePeopleSearchApplication\PeopleDatabase\bin\Debug\PeopleDatabase.dll
+F:\SVN\erp\ThePeopleSearchApplication\PeopleDatabase\bin\Debug\PeopleDatabase.pdb
+F:\SVN\erp\ThePeopleSearchApplication\PeopleDatabase\obj\Debug\PeopleDatabase.dll
+F:\SVN\erp\ThePeopleSearchApplication\PeopleDatabase\obj\Debug\PeopleDatabase.pdb

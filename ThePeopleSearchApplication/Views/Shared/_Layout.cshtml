@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - The people search</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Content/css/custom.css" rel="stylesheet" />
+    @*    <link href="~/Content/css/select2.css" rel="stylesheet" />*@
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    @*<script src="~/Scripts/Custom.js"></script>*@
+</head>
+<body data-color="grey" class="flat">
+    <div id="wrapper">
+        <div id="header" class="hidden-print">
+            <h1><a href="Home.aspx">
+                <img id="lbiIamge" src="" class="hidden-print header-log" alt="" /></a></h1>
+            <a id="menu-trigger" href="#"><i class="fa fa-bars fa fa-2x"></i></a>
+            <div class="clear"></div>
+        </div>
+        <div id="user-nav" class="hidden-print hidden-xs">
+            <ul class="btn-group " style="width: auto; margin: 0px;">
+                <li class="btn"><a title="" href="/Home/Index"><i class="fa fa-cog fa-bell"></i><span class="text">jQuery</span></a></li>
+                <li class="btn"><a title="" href="/Home/Angular"><i class="fa fa-user"></i><span class="text">Angular</span></a></li>
+                <li class="btn">
+                    <a href="/Account/LogOut"><i class="fa fa-power-off"></i><span class="text">Logout</span></a>
+                </li>
+            </ul>
+        </div>
+        <div id="sidebar" class="hidden-print minibar sales_minibar">
+            <ul style="display: block;">
+                <li class="active">
+                    <a href="/Home/Index"><i class="icon fa fa-dashboard"></i><span class="hidden-minibar">jQuery</span></a>
+                </li>
+                <li>
+                    <a href="/Home/Angular"><i class="fa fa-group"></i><span class="hidden-minibar">Angular</span></a>
+                </li>
+                <li>
+                    <a href="/Home/Knockout"><i class="fa fa-table"></i><span class="hidden-minibar">Knockout</span></a></li>
+                <li>
+                    <a href="/people/Index"><i class="fa fa-power-off"></i><span class="hidden-minibar">KendoGrid</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="k-loading-mask">
+        <span class="k-loading-text">Loading...</span>
+        <div class="k-loading-image">
+            <div class="k-loading-color">
+            </div>
+        </div>
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        var peopleModel;
+        $(function () {
+            var pathname = window.location.pathname;
+            if (pathname == "/") {
+                pathname = "/Home/Index";
+                $('li').removeClass('active')
+                    .find('a[href="' + pathname + '"]')
+                    .parents('li')
+                    .addClass('active');
+            }
+            else {
+                $('li').removeClass('active')
+                                        .find('a[href^="' + pathname + '"]')
+                                        .parents('li')
+                                        .addClass('active');
+            }
+
+        });
+
+    </script>
+</body>
+</html>

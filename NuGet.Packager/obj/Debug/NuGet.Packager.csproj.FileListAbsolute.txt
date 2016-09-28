@@ -1,0 +1,5 @@
+F:\SVN\erp\ThePeopleSearchApplication\NuGet.Packager\bin\Debug\NuGet.Packager.dll
+F:\SVN\erp\ThePeopleSearchApplication\NuGet.Packager\bin\Debug\NuGet.Packager.pdb
+F:\SVN\erp\ThePeopleSearchApplication\NuGet.Packager\obj\Debug\NuGet.Packager.csprojResolveAssemblyReference.cache
+F:\SVN\erp\ThePeopleSearchApplication\NuGet.Packager\obj\Debug\NuGet.Packager.dll
+F:\SVN\erp\ThePeopleSearchApplication\NuGet.Packager\obj\Debug\NuGet.Packager.pdb

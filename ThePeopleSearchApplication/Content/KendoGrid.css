@@ -1,0 +1,102 @@
+﻿.k-grid
+{
+	border: none;
+}
+
+.k-grid-header .k-header,
+.k-grid th,
+.k-grid td
+{
+	border: none;
+}
+
+.k-grid-header .k-header,
+.k-pager-wrap
+{
+	background-image: none;
+	background-color: #EEEEEE;
+	border: none;
+}
+
+.k-grid-header .k-header
+{
+	border-bottom: 10px solid #FFFFFF;
+}
+
+.k-grid tr.odd
+{
+	background-color: #FFFFFF;	
+}
+
+.k-grid tr.even
+{
+	background-color: #F5F5F5;
+}
+
+/********************************************************************************************************************************************/
+/*  Header                                                                                                                                  */
+/********************************************************************************************************************************************/
+
+.k-header .k-link:hover .k-icon,
+.k-header .currentSortHeader .k-icon
+{
+	background-image: url('/Content/kendo/2014.1.318/Moonlight/sprite.png');
+}
+
+.k-header .k-link:hover,
+.k-header .currentSortHeader
+{
+	background-color: #007AFF;
+	border-color: #007AFF;
+	color: #FFFFFF;
+}
+
+/********************************************************************************************************************************************/
+/*  Pager                                                                                                                                   */
+/********************************************************************************************************************************************/
+
+.k-pager-wrap .k-icon
+{
+	background-image: url('/Content/kendo/2014.1.318/Moonlight/sprite.png');
+}
+
+.k-pager-wrap .k-state-selected,
+.k-pager-wrap .k-link:hover,
+.k-pager-wrap .k-pager-nav,
+.k-pager-wrap .k-pager-nav:hover
+{
+	background-color: #007AFF;
+	border-color: #007AFF;
+	color: #FFFFFF;
+	background-image: none;
+}
+
+.k-pager-wrap .k-pager-nav
+{
+	background-color: #47C420;
+	border-color: #47C420;
+	color: #FFFFFF;
+}
+
+.k-pager-wrap .k-pager-nav:hover
+{
+	background-color: #51D123;
+	border-color: #51D123;
+	color: #FFFFFF;
+}
+
+.k-pager-wrap > .k-state-disabled,
+.k-pager-wrap > .k-state-disabled:hover
+{
+	background-color: #DDDDDD !important;
+	border-color: #DDDDDD !important;
+}
+
+.k-pager-wrap > .k-state-disabled .k-icon
+{
+	background-image: url('/Content/kendo/2014.1.318/Default/sprite.png');
+}
+
+/********************************************************************************************************************************************/
+/*  End                                                                                                                                   */
+/********************************************************************************************************************************************/

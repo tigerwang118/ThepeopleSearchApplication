@@ -1,0 +1,75 @@
+﻿.k-menu-horizontal
+{
+    float: right;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+}
+
+.k-menu:after
+{
+    width: inherit;
+}
+
+.k-menu .k-item,
+.k-widget.k-menu-horizontal > .k-item
+{
+    border: none;
+}
+
+/*.k-menu .k-item > .k-link
+{
+    height: 47px;
+    padding: 25px 1.1em 0;
+    font-weight: bold;
+    color: #FFFFFF;
+}*/
+
+/*.k-menu .k-item > .k-link .k-icon
+{
+    background-image: url('/Content/kendo/2014.1.318/Moonlight/sprite.png');
+}
+
+.k-menu .k-item > .k-link.cart
+{
+    height: 62px;
+    padding-top: 10px;
+}
+
+.k-menu .k-state-border-down
+{
+    background-color: transparent;
+}
+
+.k-menu .k-group .k-item .k-link
+{
+    background-color: #EEEEEE;
+    color: #444444;
+    height: 30px;
+    border-bottom: 1px solid #BBBBBB;
+    border-left: 1px solid #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+    padding: 10px 1.1em 0;
+}
+
+.k-menu .k-group .k-item:hover .k-link
+{
+    background-color: #007AFF;
+    color: #FFFFFF;
+}*/
+
+.cartInfo
+{
+    display: block;
+    text-align: center;
+}
+
+.ui-icon-cart
+{
+    background-image: url('/Images/cart-quick-view/cartmini.png');
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin-left: auto;
+    margin-right: auto;
+}
